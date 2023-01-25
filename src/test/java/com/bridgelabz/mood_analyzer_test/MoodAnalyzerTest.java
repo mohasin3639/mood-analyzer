@@ -4,16 +4,24 @@ import com.bridgelabz.mood_analyser.MoodAnalyzer;
 import org.junit.Assert;
 import org.junit.Test;
 public class MoodAnalyzerTest {
+
     @Test
     public void givenMessage_whenSad_shouldReturnSadMood(){
-        MoodAnalyzer obj = new MoodAnalyzer();
-        String res = obj.analyseMood("I am in sad mood");
+        MoodAnalyzer obj = new MoodAnalyzer("I am in sad mood");
+        String res = obj.analyseMood();
         Assert.assertEquals("SAD", res);
     }
     @Test
     public void givenMessage_whenAny_shouldReturnHappyMood(){
-        MoodAnalyzer obj = new MoodAnalyzer();
-        String res = obj.analyseMood("I am in Any Mood");
+        MoodAnalyzer obj = new MoodAnalyzer("I am in happy Mood");
+        String res = obj.analyseMood();
+        Assert.assertEquals("HAPPY", res);
+    }
+
+    @Test
+    public void givenMessage_whenNull_shouldReturnHappy(){
+        MoodAnalyzer obj = new MoodAnalyzer("NULL");
+        String res = obj.analyseMood();
         Assert.assertEquals("HAPPY", res);
     }
     }
